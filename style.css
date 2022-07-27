@@ -1,0 +1,52 @@
+* {
+    box-sizing: border-box;
+    margin: 0px;
+    padding: 0px;
+  }
+
+:root {
+    --light: whitesmoke;
+    --text:'Times New Roman', Times, serif; 
+    --dark: rgb(32, 31, 31);
+    --flame:  rgb(70, 3, 3)
+}
+
+header{
+    display:flex;
+    padding: 20px;
+    font-family: var(--text);
+    background-color: var(--dark);
+    color: var(--light);
+    justify-content: space-between;
+    font-size: 40px;
+}
+
+header h1 {
+    font-size: 30px;
+    margin-top: 10px;
+    text-align: center;
+}
+
+.start {
+    background: radial-gradient(circle, var(--light)) 0%, var(--flame);
+    border-radius: 4px;
+    color: red;
+    cursor:crosshair;
+    font-size: 10px;
+    max-width: 200px;
+    padding: 10px;
+    text-align: center;
+    transition-duration: 0.10s;
+    transition-property: background-color;
+    transition-timing-function: linear;
+}
+
+.hero {
+    display:flex;
+    height: 500px;
+    width: 100%;
+    margin-bottom: 15px;
+    background-image: url("./Flames.jpg");
+    background-size: cover;
+    background-position: center;
+}
