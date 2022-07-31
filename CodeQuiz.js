@@ -14,35 +14,39 @@ const Questions = [{
         {text:"Fancy latte art", isCorrect: false},
         {text:"Pure despair", isCorrect:false},
         {text:"A third party API", isCorrect:false}
-    ],
+    ]
+},
 
-    id:1,
+    {id:1,
     decision: "what is the purpose of .concat()?",
     answer: [{text: "Conning small mammals", isCorrect: false},
     {text:"Adding the content of arrays together", isCorrect: true},
     {text:"Obtaining a random number", isCorrect:false},
     {text:"Taking arrays apart", isCorrect:false}
-    ],
+    ]
+},
 
-    id:2,
+   { id:2,
     choice:"In CSS, how can you individualize property assignments to HTML elements",
     answer: [{text: "By giving them a special name", isCorrect: false},
     {text:"By sorting them into their own Hogwarts House", isCorrect: false},
     {text:"By using the class or ID selecto", isCorrect: true},
     {text:"MDN because it never lies", isCorrect:false}
-    ],
+    ] 
+   },
 
-    id: 3,
+    { id: 3,
     choice: "In CSS, how cam you prevent redundancies?",
     answer: [{text: "Just don't do it", isCorrect: false},
     {text:"", isCorrect: false},
     {text:"Using the root: property", isCorrect: true},
     {text:"MDN because it never lies", isCorrect:false}
     ],
+}
 
 
-}];
-    
+];
+  console.log(typeof choice);  
 
 //"what is the purpose of .concat()?",
   //  "In HTML, which is not a semantic element?",
@@ -106,7 +110,7 @@ function showQuestion(id){
     const option = document.getElementsByClassName("option");
 
     option[0].addEventListener("click", () => {
-        if (selected=="true"){
+        if (selected==true){
             window.alert("Correct!");
         } else { wrongAnswer();
 
@@ -131,7 +135,6 @@ proceed.addEventListener("click", () => {
 
 var secondsLeft= 60;
 var timerInterval;
-var questionIndex = 0;
 
 function startTimer() {
     timerEl.style.display = "block"; 
