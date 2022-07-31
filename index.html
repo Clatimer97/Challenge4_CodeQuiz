@@ -12,27 +12,46 @@
 <body>
   <header>
     <h1>Take This Quiz... IF YOU DARE!</h1>
-    <button class="start">BEGIN</button>
+    <p id="timer">seconds</p>
   </header>
 
   <section class="hero" title="Path of Peril"></section>
 
   <main>
-    <section>
-      <div class="Quiz">
-       <div class=Risk>The Path to Greatness is Full of Risk</div>
-      </div>
+    <section class="path">
+       <h2>The Path to Greatness is Full of Risk</h2> 
+       <button type="button" id="start">BEGIN</button>
     </section>
-    <section>
-      <div class="scoreboard">
-        <h2>Champion: <span class="champion">__</span></h2>
-        <h2>Score: <span class="highscore">__</span></h2>
-      </div>
-      <button class="reset">Begin Anew</button>
+    <div class="panel">
+    <section class="question-container" id="question">
+        <!--question goes here-->
     </section>
-    <section>
-      <div class="timer"></div>
+    <section class="choice-container">
+        <button class="option" onclick="" id="op1">option one</button>
+        <button class="option" id="op2">option two</button>
+        <button class="option" id="op3">option three</button>
+        <button class="option" id="op4">option four</button>
     </section>
+    <section class="progress">
+        <button class="proceed">Proceed</button>
+    </section>
+    </div>
+
+    <section class="highscore" hidden>
+      <h2>Enter Your Initials if Ye Be True</h2>
+      <input type="form">
+      <h2>Enter Your Score if Ye Be Worthy</h2>
+      <input type="form">
+    </section>
+    <section >
+     <button id="reset">Retry</button>   
+    </section>
+    <aside id="leaderboard">
+        <!--ol for highscores-->
+        <ol></ol> 
+    </aside>
   </main>
+  <script src="./CodeQuiz.js"></script>
 </body>
+</html>
 

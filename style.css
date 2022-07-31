@@ -8,7 +8,7 @@
     --light: whitesmoke;
     --text:'Times New Roman', Times, serif; 
     --dark: rgb(32, 31, 31);
-    --flame:  rgb(70, 3, 3)
+    --flame: red;
 }
 
 header{
@@ -27,13 +27,37 @@ header h1 {
     text-align: center;
 }
 
-.start {
-    background: radial-gradient(circle, var(--light)) 0%, var(--flame);
+#timer {
+    display: none;
+    font-size: 40px;
+    color: var(--flame);
+}
+
+
+.hero {
+    display:flex;
+    height: 300px;
+    width: 100%;
+    margin-bottom: 15px;
+    background-image: url("./Flames.jpg");
+    background-size: cover;
+    background-position: center;
+}
+
+main {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.path button {
+    background: radial-gradient(var(--light)) 5%, var(--flame) 95%;
     border-radius: 4px;
-    color: red;
-    cursor:crosshair;
-    font-size: 10px;
-    max-width: 200px;
+    color: var(--flame);
+    cursor: pointer;
+    font-size: 40px;
+    max-width: 300px;
     padding: 10px;
     text-align: center;
     transition-duration: 0.10s;
@@ -41,12 +65,68 @@ header h1 {
     transition-timing-function: linear;
 }
 
-.hero {
+.path {
     display:flex;
-    height: 500px;
+    flex-wrap: wrap;
+    flex-direction: column;
+    background-color: var(--dark);
+    height: 40em;
     width: 100%;
-    margin-bottom: 15px;
-    background-image: url("./Flames.jpg");
-    background-size: cover;
-    background-position: center;
+    align-items: center;
+}
+
+.path h2 {
+    text-align: center;
+    color: var(--flame);
+    margin-bottom: 32px;
+}
+
+#questionbox {
+    display: flex;
+    background-color: var(--dark);
+    height: 40em;
+    width: 100%;
+    align-items: center;
+    color: var(--flame);
+    text-align: center;
+    justify-content: center;
+}
+
+#questionHeader {
+    display:flex;
+    text-align: center;
+    color: var(--flame);
+    font-size: 40px;
+}
+
+#options {
+    display:flex;
+    text-align: center;
+    color: var(--flame);
+    font-size: 25px;
+}
+.option { 
+    display: none;
+    background: radial-gradient(var(--light)) 5%, var(--flame) 95%;
+    border-radius: 4px;
+    color: var(--flame);
+    cursor: pointer;
+    font-size: 20px;
+    padding: 10px;
+    text-align: center;
+    transition-duration: 0.10s;
+    transition-property: background-color;
+    transition-timing-function: linear;
+    justify-content: center;
+    width: 25%;
+
+}
+
+
+.highscore {
+    display: none;
+}
+
+.reset {
+    display: none;
 }
