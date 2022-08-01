@@ -17,34 +17,40 @@
 
   <section class="hero" title="Path of Peril"></section>
 
-  <main id="startpage">
-    <section class="path">
-       <h2>The Path to Greatness is Full of Risk</h2> 
-       <button type="button" id="start">BEGIN</button>
-    </section>
-  </main>
+  <main>
+    <h2 id="quiz">The Path to Greatness is Full of Risk</h2> 
+    <p id="instructions"> 
+      BEWARE! Ahead lies a challenge not for the faint of heart.
+      Answer each question with careful thought.
+      But be warned, each incorrect answer brings you 
+      10 seconds closer to your doom. If you succeed,
+      your name will be among the champions.
+      If you fail, your failure will be there for all to see...
+    </p>
+    <button type="button" id="start">BEGIN</button>
+    <ul id="answers">
 
-    <section class="question" id="questions">
-      <h2></h2>
-    </section>
-    
-    <section class="answer" id="answers">
-      <h2></h2>
-    </section>
-    <section class="highscore" hidden>
-      <h2>Enter Your Initials if Ye Be True</h2>
-      <input type="form">
-      <h2>Enter Your Score if Ye Be Worthy</h2>
-      <input type="form">
-    </section>
-    <section >
-     <button id="reset">Retry</button>   
-    </section>
-    <aside id="leaderboard">
-        <!--ol for highscores-->
-        <ol></ol> 
-    </aside>
+    </ul>
+    <div id="highscore-form">
+      <h2>You Have Reached the End of Your Journey</h2>
+      <p>Final Score:</p>
+      <div>
+        <h2 id="highscore"></h2>
+      </div>
+      <div>
+        <p>Enter Your Name if Ye Be Worthy:</p>
+        <input type="text" id="champion" name="championname" value="">
+        <button id="highscore-form-btn">Submit</button>
+      </div>
+    </div>
+      <div id="scoreboard">
+        <h2>Hall of Champions</h2>
+          <ol></ol>
+      </div>
   </main>
+  <footer>
+    <h3>Made by Callan Latimer through the crucible that is Javascript</h3>
+  </footer>
   <script src="./CodeQuiz.js"></script>
 </body>
 </html>

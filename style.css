@@ -38,7 +38,6 @@ header h1 {
     display:flex;
     height: 300px;
     width: 100%;
-    margin-bottom: 15px;
     background-image: url("./Flames.jpg");
     background-size: cover;
     background-position: center;
@@ -51,7 +50,7 @@ header h1 {
     justify-content: space-between;
 }
 
-.path button {
+#start {
     background: radial-gradient(var(--light)) 5%, var(--flame) 95%;
     border-radius: 4px;
     color: var(--flame);
@@ -65,7 +64,7 @@ header h1 {
     transition-timing-function: linear;
 }
 
-.path {
+main {
     display:flex;
     flex-wrap: wrap;
     flex-direction: column;
@@ -75,30 +74,59 @@ header h1 {
     align-items: center;
 }
 
-.path h2 {
+main h2 {
+    margin-top: 30px;
     text-align: center;
     color: var(--flame);
     margin-bottom: 32px;
 }
 
-#questionbox {
-    display: flex;
-    background-color: var(--dark);
-    height: 40em;
+#instructions {
+    display: block;
+    font-size: 32px;
+    font-family: var(--text);
+    color: var(--flame);
+    margin-bottom: 32px;
+}
+
+#highscore-form {
+    display: flex; 
+    align-items: flex-start;
+}
+main > ul{
+   justify-content: center;
+   text-align: center;
+
+}
+
+main > ul li {
     width: 100%;
-    align-items: center;
-    color: var(--flame);
-    text-align: center;
-    justify-content: center;
+    padding: 10, 10, 10, 10;
+    background-color: var(--flame);
+    font-size: 30px;
+    color: var(--dark);
+    border: var(--dark);
+    border-style: solid;
+}
+main > ul li:hover {
+    background-color: orange;
+
 }
 
-#questionHeader {
-    display:flex;
-    text-align: center;
+#next{
+    display: none;
+    background: radial-gradient(var(--light)) 5%, var(--flame) 95%;
+    border-radius: 4px;
     color: var(--flame);
-    font-size: 40px;
+    cursor: pointer;
+    font-size: 20px;
+    max-width: 1000px;
+    padding: 10px;
+    text-align: center;
+    transition-duration: 0.10s;
+    transition-property: background-color;
+    transition-timing-function: linear;
 }
-
 #options {
     display:flex;
     text-align: center;
@@ -115,7 +143,7 @@ header h1 {
     text-align: center;
     color: var(--flame);
     margin-bottom: 32px;
-    font-family: 'Times New Roman', Times, serif
+    font-family: var(--text);
 }
 .quest { 
     display: none;
@@ -147,7 +175,7 @@ header h1 {
     margin-bottom: 32px;
 
 }
-.highscore {
+#highscore-form {
     display: none;
 }
 

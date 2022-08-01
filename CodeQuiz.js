@@ -1,95 +1,69 @@
 var startButton = document.querySelector("#start");
-var resetButton = document.querySelector("reset");
+//var nextButton = document.querySelector("#next");
+var highscoreButton= document.querySelector("#highscore-form-btn");
 var timerEl = document.querySelector("#timer");
-var highscore = document.querySelector("highscore"); 
-var questionEl = document.querySelector("#questions");
+var highscore = document.querySelector("highscore-form"); 
+var questionEl = document.querySelector("#quiz");
 var answerEl = document.querySelector("#answers");
+var instructions = document.querySelector("#instructions")
 var startPageEl= document.querySelector("#startpage");
 var submitButton = document.getElementById("submit"); 
-// var questionBox= document.querySelector("#questionbox");
-// var questionHeader= document.querySelector("#questionheader");
-// var options = document.querySelector("#options");
-
-
-var questionArray = [
-    {
-    question: "What is Javascript",
-    answer: [
-        {choice:"A coding language that makes a page interactive", id: "a"},
-        {choice: "Fancy latte art", id:"b"},
-        {choice:"Pure despair", id: "c"},
-        {choice: "A third party API", id: "d"}, 
-    ],
-        
-    correct: "a",
-},
-
-{
-    question: "what is the purpose of .concat()?",
-    answer: [
-        {choice: "Conning small mammals", id: "a"},
-        {choice: "Adding the content of arrays together", id: "b"},
-        {choice:"Obtaining a random number", id: "c"},
-        {choice: "Taking arrays apart", id: "d"},
-    ],
-    
-    correct: "b"
-    
-},
-
-   {
-    question:"In CSS, how can you individualize property assignments to HTML elements",
-    answer: [
-
-        {choice:"By giving them a special name", id: "a"}, 
-        {choice:"By sorting them into their own Hogwarts House", id: "b"},
-        {choice: "By using the class or ID selector", id:"c"},
-        {choice: "MDN because it never lies", id: "d" },  
-    ],
-        correct: "c",
-   },
-
-
-    { 
-    question: "In CSS, how can you prevent redundancies?",
-    answer: [
-        {choice:"Just don't do it", id: "a"}, 
-        {choice: "A reset CSS file", id:"b"},
-        {choice: "Using the root: property", id:"c"} ,
-        {choice:"MDN because it never lies", id: "d"} 
-    ],
-        correct: "c"
-},
-        
-
-];
-
-var questions= 0;
-var answers= 0;
-var inQuiz = false;
-
-
-
-function showQuestions() {
-   
-    //if (!inQuiz || quizArray === questionArray.length) return;
-    questionEl.innerHTML = questionArray[questions].question;
-
-    // for(let i=0; i < questions[questionArray].answer.length; i++){
-    //     questionEl.style.display= "block";
-    //     answerEl.style.display = "block";
-    //     startPageEl.style.display = "none";
-
-    // }
-    
- 
-}
-   
-
-
+var highscore = document.querySelector("#highscore")
+var questionNumber= 0;
+var answerNumber=0;
+var numCorrect = 0;
 var secondsLeft= 60;
+var gameOver = true;
 var timerInterval;
 
+var questionArray = {
+  questions:
+   [
+        "What is Javascript?", 
+        "what is the purpose of .concat()?",
+        "In CSS, how can you individualize property assignments to HTML elements?",
+        "In CSS, how can you prevent redundancies?"
+    ],
+
+answers: [
+        [
+        "Correct: A coding language that makes a page interactive", 
+        "Fancy latte art",
+         "Pure despair",
+         "A third party API"
+        ],
+
+        [
+        "Conning small mammals",
+        "Correct: Adding the content of arrays together",
+        "Obtaining a random number",
+        "Taking arrays apart"
+        ],
+
+        [
+        "By giving them a special name",
+        "By sorting them into their own Hogwarts House",
+        "Correct: By using the class or ID selector",
+        "MDN because it never lies"
+        ],
+
+        ["Just don't do it",
+        "A reset CSS file",
+        "Correct: Using root:",
+        "MDN because it never lies"
+        ]
+
+    ]
+
+ };
+
+ console.log(questionArray);
+
+    
+startButton.addEventListener("click", beginQuiz);
+answerEl.addEventListener("click", checkCorrect);
+
+    
 function startTimer() {
     timerEl.style.display = "block"; 
    
@@ -98,83 +72,100 @@ function startTimer() {
         timerEl.textContent= secondsLeft + " seconds remaining";
         if(secondsLeft === 0) {
           clearInterval(timerInterval);
-       
+         
         };
-    
+        if(secondsLeft<1){
+           endQuiz() 
+        }
+         
       }, 1000);
+      return;
 };
 
 
 console.log(startTimer);
 
-startButton.addEventListener("click", beginGame);
 
 
-
-function beginGame(){
-    secondsLeft = 60
+function beginQuiz(){
+    gameOver = false;
+    secondsLeft = 60;
+    questionNumber= 0;
     startTimer();
     showQuestions();
-     startButton.style.display = "none"
-}
+     startButton.style.display = "none";
+     document.querySelector("#instructions").style.display = "none";
+};
 
-console.log(beginGame);
+console.log(beginQuiz);
 
+function showQuestions() {
+    questionEl.textContent = questionArray.questions[questionNumber];
+    showChoices();
+ };
 
+ console.log(showQuestions);
 
+ function showChoices() {
 
-//on title screen, user clicks button to begin quiz ~
-// button disappears and timer starts ~
-// first question displayed 
-// user chooses either right/wrong answer; wrong answer results in 10s deduction from timer
-// once choice is selected, window progresses to next question with the same parameters
-// Once user reaches the end of the quiz, input box for initials and score displays
-// Input displayed on "scoreboard"
-//Option to reset and take the quiz again // var start= true;
-// function showQuestion(id){
-//     const question = document.getElementById("question");
-    
-//     question.innerText= Questions[id].choice;
+    answerEl.innerHTML = '';
+    for (answerNumber= 0; answerNumber < (questionArray.answers[questionNumber].length); answerNumber++){
+        var currentChoice = document.createElement("li");
+        var fade = questionArray.answers[questionNumber][answerNumber];
 
-//     const op1= document.getElementById("op1");
-//     const op2= document.getElementById("op2");
-//     const op3= document.getElementById("op3");
-//     const op4= document.getElementById("op4");
+        if(questionArray.answers[questionNumber][answerNumber].includes("Correct:")){
+            fade = questionArray.answers[questionNumber][answerNumber].substring(8, questionArray.answers[questionNumber][answerNumber].length);
+            currentChoice.id= "Correct";
+           
+        }
+            currentChoice.textContent= fade;
+            answerEl.appendChild(currentChoice);
+    }
+    return;
 
-//     op1.innerText = Questions[id].answer[0].text;
-//     op2.innerText = Questions[id].answer[1].text;
-//     op3.innerText = Questions[id].answer[2].text;
-//     op4.innerText = Questions[id].answer[3].text;
+ };
 
-//     op1.value = Questions[id].answer[0].isCorrect;
-//     op2.value = Questions[id].answer[1].isCorrect;
-//     op3.value = Questions[id].answer[2].isCorrect;
-//     op4.value = Questions[id].answer[3].isCorrect;
+ console.log(showChoices);
 
-//     var selected = "";
+ function nextChoice() {
+    questionNumber++;
+    if (questionNumber >= questionArray.questions.length){
+        endQuiz();
+    } else {
+        showChoices();
+    }
+    return;
+ };
 
-//     const option = document.getElementsByClassName("option");
+ console.log(nextChoice);
 
-//     option[0].addEventListener("click", () => {
-//         if (selected==true){
-//             window.alert("Correct!");
-//         } else { wrongAnswer();
+ function endQuiz(){
+    gameOver= true;
+    timerEl.style.display = "none";
+    questionEl.style.display = "none"
+    answerEl.innerHTML = '';
+    highscore.textContent= numCorrect;
+    document.querySelector("#highscore-form").style.display= "block";
+    return;
+ }
 
-//         }
-//     });
-// if(start){
-//     showQuestion("0");
-// };
+console.log(endQuiz);
 
-// const proceed = document.getElementsByClassName("proceed")[0];
-// var id = 0;
+function checkCorrect(event) {
+        if (event.target=answerEl){
+            console.log(event.target)
 
-// proceed.addEventListener("click", () => {
-//     start=false;
-//     if (id<3){
-//         id++;
-//         showQuestion(id);
-//         console.log(id);
-//     }
-// })
-// };
+        if(event.target.id.includes("Correct")){
+            numCorrect++
+            window.alert("Correct!")
+        }
+
+        if(!event.target.id.includes("Correct")) {
+            secondsLeft -= 10;
+            window.alert("Wrong!")
+    }  
+    nextChoice();
+} 
+    return;
+};
+
