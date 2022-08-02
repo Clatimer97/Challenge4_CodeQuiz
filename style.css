@@ -38,16 +38,9 @@ header h1 {
     display:flex;
     height: 300px;
     width: 100%;
-    background-image: url("./Flames.jpg");
+    background-image: url("./Images/Flames.jpg");
     background-size: cover;
     background-position: center;
-}
-
-#startpage {
-    display: flex;
-    flex-wrap: wrap;
-    align-items: center;
-    justify-content: space-between;
 }
 
 #start {
@@ -77,8 +70,9 @@ main {
 main h2 {
     margin-top: 30px;
     text-align: center;
-    color: var(--flame);
+    color: var(--light);
     margin-bottom: 32px;
+    font-family: var(--text);
 }
 
 #instructions {
@@ -91,8 +85,10 @@ main h2 {
 
 #highscore-form {
     display: flex; 
-    align-items: flex-start;
+    align-items: center;
+    justify-content: center;
 }
+
 main > ul{
    justify-content: center;
    text-align: center;
@@ -107,31 +103,11 @@ main > ul li {
     color: var(--dark);
     border: var(--dark);
     border-style: solid;
+     font-family: var(--text);
 }
 main > ul li:hover {
     background-color: orange;
 
-}
-
-#next{
-    display: none;
-    background: radial-gradient(var(--light)) 5%, var(--flame) 95%;
-    border-radius: 4px;
-    color: var(--flame);
-    cursor: pointer;
-    font-size: 20px;
-    max-width: 1000px;
-    padding: 10px;
-    text-align: center;
-    transition-duration: 0.10s;
-    transition-property: background-color;
-    transition-timing-function: linear;
-}
-#options {
-    display:flex;
-    text-align: center;
-    color: var(--flame);
-    font-size: 25px;
 }
 
 .question {
@@ -144,22 +120,7 @@ main > ul li:hover {
     color: var(--flame);
     margin-bottom: 32px;
     font-family: var(--text);
-}
-.quest { 
-    display: none;
-    background: radial-gradient(var(--light)) 5%, var(--flame) 95%;
-    border-radius: 4px;
-    color: var(--flame);
-    cursor: pointer;
-    font-size: 20px;
-    padding: 10px;
-    text-align: center;
-    transition-duration: 0.10s;
-    transition-property: background-color;
-    transition-timing-function: linear;
-    justify-content: center;
-    width: 25%;
-
+   
 }
 
 .answers {
@@ -172,13 +133,74 @@ main > ul li:hover {
     align-items: center;
     text-align: center;
     color: var(--flame);
+    font-family: var(--text);
     margin-bottom: 32px;
 
 }
 #highscore-form {
     display: none;
+    font-family: var(--text);
+    color: var(--flame);
+    align-items: center;
+    text-align:center;
+
+}
+#name-button{
+    display: flex;
+    background: radial-gradient(var(--light)) 5%, var(--flame) 95%;
+    border-radius: 4px;
+    color: var(--flame);
+    cursor: pointer;
+    font-size: 16px;
+    max-width: 80px;
+    padding: 10px;
+    text-align: center;
+    transition-duration: 0.10s;
+    transition-property: background-color;
+    transition-timing-function: linear;
 }
 
-.reset {
-    display: none;
+#reset{
+    display: flex;
+    background: radial-gradient(var(--light)) 5%, var(--flame) 95%;
+    border-radius: 4px;
+    color: var(--flame);
+    cursor: pointer;
+    font-size: 16px;
+    max-width: 80px;
+    padding: 10px;
+    text-align: center;
+    transition-duration: 0.10s;
+    transition-property: background-color;
+    transition-timing-function: linear;
+}
+
+#scoreboard {
+    display: block;
+    justify-content: center;
+    font-family: var(--text);
+    color: (--flame)
+
+}
+
+#list {
+    display: block;
+    text-align: center;
+    font-family: var(--text);
+    color: (--flame);
+    font-size: 20px; 
+ 
+}
+
+footer{
+    display:flex;
+    padding: 5px;
+    font-family: var(--text);
+    background-color: var(--dark);
+    color: var(--flame);
+    align-content: center;
+    justify-content: center;
+    text-align: center;
+    font-size: 10px;
+
 }
