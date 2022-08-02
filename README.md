@@ -48,7 +48,7 @@ If statement says that if lastScore is not equal to nothing, display the text co
 ## Assets
 [!Screenshot](./Images/CodeQuizScrnsht.jpeg)
 [LinktoRepository](https://github.com/Clatimer97/Challenge4_CodeQuiz)
-[LinktoLiveApp]()
+[LinktoLiveApp](https://clatimer97.github.io/Challenge4_CodeQuiz/)
 
 # References
 * For my reset stylesheet, I used the Eric Meyer reset stylesheet which is a standardized reset stylsheet available on the internet. The link to reference it is posted below.
