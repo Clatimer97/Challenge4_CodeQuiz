@@ -46,7 +46,7 @@ If statement says that if lastScore is not equal to nothing, display the text co
 
 
 ## Assets
-[!Screenshot](./Images/CodeQuizScrnsht.jpeg)
+![Screenshot](./Images/CodeQuizScrnsht.jpeg)
 [LinktoRepository](https://github.com/Clatimer97/Challenge4_CodeQuiz)
 [LinktoLiveApp](https://clatimer97.github.io/Challenge4_CodeQuiz/)
 
